@@ -4,8 +4,14 @@
  */
 import home from './home';
 import project from './project';
+import menu from './menu';
+import baseJs from './baseJs';
+import react from './react';
 
 export {
   home,
   project,
+  menu,
+  baseJs,
+  react,
 };

@@ -16,7 +16,7 @@ const HooksDemo: React.FC<IProps> = ({ history }) => {
   };
 
   const toHooks = () => {
-    history.push('/app/class');
+    history.push('/app/basejs');
   };
 
   return (

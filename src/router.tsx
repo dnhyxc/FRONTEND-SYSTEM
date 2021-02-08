@@ -22,9 +22,9 @@ const Routers: React.FC<IRoutersProps> = ({ history, app }) => {
       <ConnectedRouter history={history}>
         <App>
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/app/hooks" />} />
-            <Route exact path="/app" render={() => <Redirect to="/app/hooks" />} />
-            <Route exact path="/app/index" render={() => <Redirect to="/app/hooks" />} />
+            <Route exact path="/" render={() => <Redirect to="/app/home" />} />
+            <Route exact path="/app" render={() => <Redirect to="/app/home" />} />
+            <Route exact path="/app/index" render={() => <Redirect to="/app/home" />} />
             {
               RoutesConfig.map(({ path, exact, ...dynamics }: any, key) => (
                 <Route
@@ -38,7 +38,7 @@ const Routers: React.FC<IRoutersProps> = ({ history, app }) => {
                 />
               ))
             }
-            <Redirect to="/app/hooks" />
+            <Redirect to="/app/home" />
           </Switch>
         </App>
       </ConnectedRouter>

@@ -1,14 +1,20 @@
 export const RoutesConfig = [
   {
-    title: '首页',
+    title: 'HOME',
     key: 'home',
-    path: '/app/hooks/:id?',
-    component: () => import('@/routes/hooks'),
+    path: '/app/home/:id?',
+    component: () => import('@/routes/home'),
   },
   {
-    title: '团队',
-    key: 'team',
-    path: '/app/class',
-    component: () => import('@/routes/class'),
+    title: 'BASEJS',
+    key: 'basejs',
+    path: '/app/basejs',
+    component: () => import('@/routes/baseJs'),
+  },
+  {
+    title: 'REACT',
+    key: 'react',
+    path: '/app/react',
+    component: () => import('@/routes/react'),
   },
 ];

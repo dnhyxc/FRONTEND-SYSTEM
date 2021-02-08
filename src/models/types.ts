@@ -1,5 +1,8 @@
 import { IhomeModelState } from './home';
 import { IProjectModelState } from './project';
+import { IMenuModelState } from './menu';
+import { IBaseJsModelState } from './baseJs';
+import { IReactModelState } from './react';
 
 export type Loading = Readonly<{
   global: boolean;
@@ -7,6 +10,9 @@ export type Loading = Readonly<{
   models: {
     home?: boolean;
     project?: boolean;
+    menu?: boolean;
+    baseJs?: boolean;
+    react?: boolean;
   };
 }>;
 
@@ -27,6 +33,9 @@ export type GlobalState = Readonly<{
   loading: Loading;
   home: IhomeModelState;
   project: IProjectModelState;
+  menu: IMenuModelState;
+  baseJs: IBaseJsModelState;
+  react: IReactModelState;
 }>;
 
 export interface Data {

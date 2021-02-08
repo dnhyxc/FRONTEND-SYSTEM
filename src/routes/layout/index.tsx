@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 import { Layout } from 'antd';
 import MMenu from '@/components/Menu';
 
@@ -11,19 +11,12 @@ interface ILayoutProps {
 }
 
 const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
-
-  const onCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
   return (
     <Layout className={styles.layout}>
       <Sider
         width={240}
         theme="light"
         className="sider"
-        onClick={onCollapsed}
       >
         <MMenu />
       </Sider>

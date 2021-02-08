@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Tabs, Input, Button } from 'antd';
 import { GlobalState } from '@/models/types';
 import { connect, DispatchProp } from 'react-redux';
+import { withRouter } from 'dva/router';
 import { LoginActions, UserInfoTypes } from '@/models/login';
 import icon from '@/assets/image/logo192.png';
 import styles from './index.less';
@@ -10,14 +11,13 @@ const { TabPane } = Tabs;
 
 interface IProps extends DispatchProp {
   userInfo: UserInfoTypes;
+  history: any;
 }
 
-const Login: React.FC<IProps> = ({ dispatch, userInfo }) => {
+const Login: React.FC<IProps> = ({ dispatch, userInfo, history }) => {
   const [uname, setUname] = useState<string>();
   const [pwd, setPwd] = useState<number>();
   const [tabKey, setTabKey] = useState<string>('1');
-
-  console.log(userInfo, 'userInfo');
 
   const onTabChange = (key: string) => {
     setTabKey(key);
@@ -39,6 +39,7 @@ const Login: React.FC<IProps> = ({ dispatch, userInfo }) => {
           passWord: pwd,
         };
         dispatch(LoginActions.reducers.save({ userInfo: info }));
+        history.push('/app/home');
       }
     } else {
       console.log('手机快捷登录');
@@ -80,6 +81,6 @@ const Login: React.FC<IProps> = ({ dispatch, userInfo }) => {
   );
 };
 
-export default connect((state: GlobalState) => ({
+export default withRouter(connect((state: GlobalState) => ({
   userInfo: state.login.userInfo,
-}))(Login);
+}))(Login));

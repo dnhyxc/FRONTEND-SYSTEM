@@ -3,6 +3,7 @@ import { IProjectModelState } from './project';
 import { IMenuModelState } from './menu';
 import { IBaseJsModelState } from './baseJs';
 import { IReactModelState } from './react';
+import { ILoginModelState } from './login';
 
 export type Loading = Readonly<{
   global: boolean;
@@ -13,6 +14,7 @@ export type Loading = Readonly<{
     menu?: boolean;
     baseJs?: boolean;
     react?: boolean;
+    login?: boolean;
   };
 }>;
 
@@ -36,6 +38,7 @@ export type GlobalState = Readonly<{
   menu: IMenuModelState;
   baseJs: IBaseJsModelState;
   react: IReactModelState;
+  login: ILoginModelState;
 }>;
 
 export interface Data {

@@ -1,6 +1,6 @@
 import {
   Model, createActionCreaters,
-} from '@shuwen/dva-ts-wrapper';
+} from '@/utils/dva-ts-wrapper';
 import * as Service from '@/services/project';
 import { Result } from '@/utils/tool';
 import {

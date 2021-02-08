@@ -164,7 +164,7 @@ module.exports = {
     // hot: true,
     compress: true,
     clientLogLevel: 'none',
-    quiet: true,
+    // quiet: true,
     proxy: {
       // '/api': {
       //   'target': 'https://bat.xinhuazhiyun.com/',

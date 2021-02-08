@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router';
+import React, { ReactNode, useState } from 'react';
 import { Layout } from 'antd';
 import MMenu from '@/components/Menu';
 
@@ -8,7 +7,7 @@ import styles from './index.less';
 const { Sider, Content } = Layout;
 
 interface ILayoutProps {
-  children: any;
+  children: ReactNode;
 }
 
 const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
@@ -21,7 +20,6 @@ const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
   return (
     <Layout className={styles.layout}>
       <Sider
-        // collapsed={collapsed}
         width={240}
         theme="light"
         className="sider"
@@ -38,4 +36,4 @@ const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
   );
 };
 
-export default withRouter(MainLayout as any);
+export default MainLayout;

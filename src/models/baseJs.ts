@@ -23,7 +23,7 @@ interface IEffectsPayloads {
 const BaseJsModel: Model<IBaseJsModelState, GlobalState, IReducersPayloads, IEffectsPayloads> = {
   namespace: 'baseJs',
   state: {
-    selected: [],
+    selected: ['base'],
     isShowTree: false,
   },
   reducers: {

@@ -17,4 +17,11 @@ export const RoutesConfig = [
     path: '/app/react',
     component: () => import('@/routes/react'),
   },
+  {
+    title: 'LOGIN',
+    key: 'login',
+    path: '/app/login',
+    component: () => import('@/routes/login'),
+    exact: true,
+  },
 ];

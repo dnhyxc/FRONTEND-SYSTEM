@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import {
   Model, createActionCreaters, Effects, Reducers,
-} from '@shuwen/dva-ts-wrapper';
+} from '@/utils/dva-ts-wrapper';
 import {
   GlobalState,
 } from './types';

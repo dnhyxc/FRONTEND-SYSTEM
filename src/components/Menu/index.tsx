@@ -2,12 +2,12 @@ import React, {
   useState, useEffect,
 } from 'react';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { RouteComponentProps, withRouter } from 'dva/router';
 import menuList from '@/config/menu';
-import { withRouter } from 'dva/router';
 import MScrollbar from '../MScrollbar';
 import styles from './index.less';
 
-interface IProps {
+interface IProps extends RouteComponentProps {
   history: any;
 }
 

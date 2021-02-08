@@ -7,6 +7,7 @@ import project from './project';
 import menu from './menu';
 import baseJs from './baseJs';
 import react from './react';
+import login from './login';
 
 export {
   home,
@@ -14,4 +15,5 @@ export {
   menu,
   baseJs,
   react,
+  login,
 };

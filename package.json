@@ -1,7 +1,8 @@
 {
-  "name": "dva-webpack-antd-ts",
+  "name": "frontend-system",
   "version": "0.0.1",
   "private": true,
+  "author": "dengninghai",
   "scripts": {
     "start": "webpack serve --mode=development --config=webpack.config.js --hot --inline",
     "build": "webpack --mode=production --progress",
@@ -10,7 +11,6 @@
   },
   "dependencies": {
     "@sentry/browser": "^6.0.4",
-    "@shuwen/dva-ts-wrapper": "^1.0.0-rc0",
     "antd": "^4.11.2",
     "dva": "^2.4.1",
     "dva-loading": "^3.0.22",

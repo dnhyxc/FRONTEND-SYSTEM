@@ -13,25 +13,23 @@ interface IProps {
 }
 
 const MModel: React.FC<IProps> = ({
-  closeModel, visible, title, children, width, maskClosable
+  closeModel, visible, title, children, width, maskClosable,
 }) => {
   return (
-    <React.Fragment>
-      <Modal
-        title={title}
-        visible={visible}
-        onCancel={() => closeModel && closeModel()}
-        centered
-        width={width}
-        footer={null}
-        maskClosable={maskClosable}
-      >
-        <div className={styles.modelWrapper}>
-          {children}
-        </div>
-      </Modal>
-    </React.Fragment>
-  )
-}
+    <Modal
+      title={title}
+      visible={visible}
+      onCancel={() => closeModel && closeModel()}
+      centered
+      width={width}
+      footer={null}
+      maskClosable={maskClosable}
+    >
+      <div className={styles.modelWrapper}>
+        {children}
+      </div>
+    </Modal>
+  );
+};
 
 export default MModel;

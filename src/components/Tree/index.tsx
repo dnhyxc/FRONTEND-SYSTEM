@@ -5,21 +5,6 @@ import styles from './index.less';
 
 const { TreeNode } = Tree;
 
-function treeRender(menuList: any) {
-  return (
-    <>
-      {menuList.map((item: any) => (
-        <TreeNode
-          title={item.name}
-          key={item.id}
-        >
-          {item.child ? treeRender(item.child) : null}
-        </TreeNode>
-      ))}
-    </>
-  );
-}
-
 interface IProps {
   data: any;
   setSelectTree?: any;
@@ -32,6 +17,21 @@ interface IProps {
 const MTree: React.FC<IProps> = ({
   data, selected, selectItem, controlDisplayOfTree, isShowTree,
 }) => {
+  const treeRender = (menuList: any) => {
+    return (
+      <>
+        {menuList.map((item: any) => (
+          <TreeNode
+            title={item.name}
+            key={item.id}
+          >
+            {item.child ? treeRender(item.child) : null}
+          </TreeNode>
+        ))}
+      </>
+    );
+  };
+
   const onCloseTree = useCallback(() => {
     controlDisplayOfTree && controlDisplayOfTree();
   }, [controlDisplayOfTree]);

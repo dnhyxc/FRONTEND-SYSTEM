@@ -16,7 +16,7 @@ const MainLayout: React.FC<ILayoutProps> = ({ children }) => {
       <Sider
         width={240}
         theme="light"
-        className="sider"
+        className={styles.sider}
       >
         <MMenu />
       </Sider>

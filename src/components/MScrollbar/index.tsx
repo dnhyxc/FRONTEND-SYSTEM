@@ -14,14 +14,14 @@ const MScrollbar: React.FC = ({ children }) => {
       timer = setTimeout(() => {
         containerRef.current.parentNode.classList.remove(styles.onScroll);
       }, 800);
-    }
-  })
+    };
+  });
 
   return (
     <div ref={containerRef}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default MScrollbar;

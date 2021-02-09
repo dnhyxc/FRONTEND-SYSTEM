@@ -19,4 +19,27 @@ body,
 
   // 让网页整体变成灰色
   // .htmlToGray();
+
+  @media (max-width: 1024px) {
+    .sider {
+      display: none;
+    }
+
+    .header {
+      padding-left: 0;
+      padding-right: 50px;
+
+      .menu {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .treeWrapper {
+      display: none;
+    }
+  }
 }

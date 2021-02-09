@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Input } from 'antd';
+import {
+  CheckCircleOutlined, CloseCircleOutlined,
+} from '@ant-design/icons';
 import styles from './index.less';
 
 const MCanvas: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>();
   const [canvasText, setCanvasText] = useState<string>();
+  const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [info, setInfo] = useState<boolean>(false);
   // 获取随机字符串函数
   const randomString = (len?: number) => {
-    len = len || 5;
+    len = len || 6;
     const chars = 'QWERTYUIOPASDFGHJKLZXCVBqwertyuiopasdfghjklzxcvb0123456789';
     const maxPos = chars.length;
     let val = '';
@@ -43,7 +48,7 @@ const MCanvas: React.FC = () => {
     // 字体大小，字体类型
     ctx.font = '30px Arial';
     // 填充
-    ctx.fillText(varification, 35, 35);
+    ctx.fillText(varification, 25, 35);
     // 验证码上显示线条
     for (let i = 0; i <= 5; i++) {
       ctx.strokeStyle = randomColor();
@@ -83,16 +88,19 @@ const MCanvas: React.FC = () => {
 
   const onInputChange = (e: any) => {
     setInputValue(e.target.value);
+    if (e.target.value.trim().length <= 0) {
+      setShowInfo(false);
+    }
   };
 
   const onSubmit = () => {
     // 使输入验证不区分大小写
     if (inputValue!.toLowerCase() !== canvasText!.toLowerCase()) {
-      // eslint-disable-next-line no-alert
-      alert('验证失败');
+      setInfo(false);
+      setShowInfo(true);
     } else {
-      // eslint-disable-next-line no-alert
-      alert('验证成功');
+      setInfo(true);
+      setShowInfo(true);
     }
   };
 
@@ -102,8 +110,16 @@ const MCanvas: React.FC = () => {
         <div className={styles.mCanvas}>
           <canvas width="150" height="50" className={styles.myCanvas} id="myCanvas" />
         </div>
-        <Input className={styles.input} value={inputValue} onChange={onInputChange} />
-        <Button type="primary" onClick={onSubmit}>验证</Button>
+        <div className={styles.action}>
+          <Input className={styles.input} value={inputValue} onChange={onInputChange} />
+          <Button className={styles.btn} type="primary" onClick={onSubmit}>验证</Button>
+        </div>
+        {showInfo && (
+          <div className={info ? styles.okInfo : styles.failInfo}>
+            {info ? <CheckCircleOutlined /> : <CloseCircleOutlined />}&nbsp;
+            {info ? '验证成功' : '验证失败'}
+          </div>
+        )}
       </div>
     </div>
   );

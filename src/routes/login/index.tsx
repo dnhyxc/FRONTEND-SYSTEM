@@ -39,7 +39,15 @@ const Login: React.FC<IProps> = ({ dispatch, userInfo, history }) => {
           passWord: pwd,
         };
         dispatch(LoginActions.reducers.save({ userInfo: info }));
-        history.push('/app/home');
+        const selected = JSON.parse(sessionStorage.getItem('menuData') as any);
+        const child: any[] = [];
+        selected.forEach((i: any) => {
+          if (i.children) {
+            child.push(...i.children);
+          }
+        });
+        const res: any = child.filter(i => i.checked);
+        history.push(res[0].path);
       }
     } else {
       console.log('手机快捷登录');

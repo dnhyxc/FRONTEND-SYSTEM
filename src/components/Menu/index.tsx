@@ -21,6 +21,8 @@ const MMenu: React.FC<IProps> = ({ history }) => {
   const [advancedKey, setAdvancedKey] = useState<string>();
   const [listData, setListData] = useState<any[]>([]);
 
+  const urlPath = location.pathname;
+
   const setChecked = (data: any) => {
     const newData = JSON.parse(JSON.stringify(data));
     const res = newData.map((i: any, mi: number) => {
@@ -40,7 +42,20 @@ const MMenu: React.FC<IProps> = ({ history }) => {
 
   useEffect(() => {
     setChecked(menuList);
-  }, []);
+    const stackTreeList = JSON.parse(sessionStorage.getItem('menuData') as string);
+    const cloneList = JSON.parse(JSON.stringify(stackTreeList));
+    cloneList && cloneList.forEach((i: any) => {
+      if (i.children) {
+        i.children.forEach((child: any) => {
+          child.checked = false;
+          if (child.path === urlPath.toLowerCase()) {
+            child.checked = true;
+          }
+        });
+      }
+    });
+    sessionStorage.setItem('menuData', JSON.stringify(cloneList));
+  }, [urlPath]);
 
   const onTitleClick = (key: string, checked: boolean) => {
     setIsUp(!isUp);
@@ -75,10 +90,8 @@ const MMenu: React.FC<IProps> = ({ history }) => {
       return i;
     });
     setListData(res);
-    sessionStorage.setItem('menuDate', JSON.stringify(listData));
+    sessionStorage.setItem('menuData', JSON.stringify(listData));
   };
-
-  const list = JSON.parse(sessionStorage.getItem('menuDate') as string);
 
   return (
     <div className={styles.menu}>
@@ -88,7 +101,7 @@ const MMenu: React.FC<IProps> = ({ history }) => {
       <div className={styles.menuContainer}>
         <MScrollbar>
           {
-            (list || listData).map((i: any) => {
+            (JSON.parse(sessionStorage.getItem('menuData') as string) || listData).map((i: any) => {
               return (
                 <div key={i.key} className={styles.menuList}>
                   <div className={styles.menuTitle}>

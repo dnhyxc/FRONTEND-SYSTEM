@@ -43,7 +43,7 @@ const MTree: React.FC<IProps> = ({
   return (
     <div className={isShowTree ? styles.treeClose : styles.treeWrapper}>
       <div className={styles.treeList}>
-        <Tree defaultExpandAll blockNode defaultSelectedKeys={selected} onSelect={onSelectItem}>
+        <Tree defaultExpandAll blockNode selectedKeys={selected} onSelect={onSelectItem}>
           {treeRender(data.child)}
         </Tree>
       </div>

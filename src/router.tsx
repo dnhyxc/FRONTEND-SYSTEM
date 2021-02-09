@@ -38,6 +38,7 @@ const Routers: React.FC<IRoutersProps> = ({ history, app }) => {
                 />
               ))
             }
+            <Redirect to="/app/home" />
           </Switch>
         </App>
       </ConnectedRouter>

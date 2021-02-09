@@ -18,6 +18,10 @@ export const baseJsTreeData = {
                 },
               ],
             },
+            {
+              name: 'canvas',
+              id: 'canvas',
+            },
           ],
         },
         {

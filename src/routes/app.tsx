@@ -15,11 +15,17 @@ interface IAppProps extends RouteComponentProps, DispatchProp {
 }
 
 const App: React.FC<IAppProps> = ({ children, userInfo }) => {
-  if (!userInfo.userName && !userInfo.passWord) {
+  // 临时用
+  if (userInfo.userName && userInfo.passWord) {
     if (location.pathname !== '/app/login') {
       return <Redirect to="/app/login" />;
     }
   }
+  // if (!userInfo.userName && !userInfo.passWord) {
+  //   if (location.pathname !== '/app/login') {
+  //     return <Redirect to="/app/login" />;
+  //   }
+  // }
 
   if (location.pathname === '/app/login') {
     return <Login />;

@@ -1,5 +1,5 @@
-@import "~../../config/styles/bgc.less";
 @import "~@/index.less";
+@import "~../../config/styles/bgc.less";
 
 :global(.ant-tree) {
   width: 100%;
@@ -109,8 +109,9 @@
   justify-content: space-between;
   box-sizing: border-box;
   width: 0px;
+  // transform: translateX(-100%);
   transition: all 0.2s;
-  z-index: 999;
+  // z-index: 999;
 
   .treeList {
     width: 0px;
@@ -118,7 +119,6 @@
     text-align: left;
     padding-top: 30px;
     display: none;
-    // opacity: 0;
     transition: all 0.2s;
   }
 

@@ -114,7 +114,10 @@ const MMenu: React.FC<IProps> = ({ history }) => {
                     <div className={styles.title} onClick={() => onTitleClick(i.key, i.checked)}>
                       {i.title}
                       {
-                        (isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
+                        (isMediaUp && i.key === mediaKey)
+                          || (isApplyUp && i.key === applyKey)
+                          || ((isServiceUp && i.key === serviceKey))
+                          || (isAdvancedUp && i.key === advancedKey)
                           ? <CaretDownOutlined className={styles.Icon} />
                           : <CaretUpOutlined className={styles.Icon} />
                       }
@@ -124,7 +127,8 @@ const MMenu: React.FC<IProps> = ({ history }) => {
                         (isMediaUp && i.key === mediaKey)
                           || (isApplyUp && i.key === applyKey)
                           || ((isServiceUp && i.key === serviceKey))
-                          || (isAdvancedUp && i.key === advancedKey) ? styles.close : styles.itemList
+                          || (isAdvancedUp && i.key === advancedKey)
+                          ? styles.close : styles.itemList
                       }
                     >
                       {i.children.map((item: any) => {

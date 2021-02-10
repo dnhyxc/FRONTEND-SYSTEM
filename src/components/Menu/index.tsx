@@ -60,6 +60,7 @@ const MMenu: React.FC<IProps> = ({ history }) => {
   }, [urlPath]);
 
   const onTitleClick = (key: string, checked: boolean) => {
+    console.log(checked);
     setIsUp(!isUp);
     switch (key) {
       case 'media':

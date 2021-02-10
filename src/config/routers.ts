@@ -42,6 +42,12 @@ export const RoutesConfig = [
     component: () => import('@/routes/dnd'),
   },
   {
+    title: 'NODE',
+    key: 'node',
+    path: '/app/node',
+    component: () => import('@/routes/node'),
+  },
+  {
     title: 'AUTH',
     key: 'auth',
     path: '/app/auth',

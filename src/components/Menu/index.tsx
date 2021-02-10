@@ -16,8 +16,10 @@ const MMenu: React.FC<IProps> = ({ history }) => {
   const [isMediaUp, setIsMediaUp] = useState<boolean>(false);
   const [isApplyUp, setisApplyIsUp] = useState<boolean>(false);
   const [isAdvancedUp, setIsAdvancedUp] = useState<boolean>(false);
+  const [isServiceUp, setisServiceIsUp] = useState<boolean>(false);
   const [mediaKey, setMediaKey] = useState<string>();
   const [applyKey, setApplyKey] = useState<string>();
+  const [serviceKey, setServiceKey] = useState<string>();
   const [advancedKey, setAdvancedKey] = useState<string>();
   const [listData, setListData] = useState<any[]>([]);
 
@@ -68,6 +70,10 @@ const MMenu: React.FC<IProps> = ({ history }) => {
         setisApplyIsUp(!isApplyUp);
         setApplyKey(key);
         break;
+      case 'service':
+        setisServiceIsUp(!isServiceUp);
+        setServiceKey(key);
+        break;
       case 'advanced':
         setIsAdvancedUp(!isAdvancedUp);
         setAdvancedKey(key);
@@ -115,9 +121,10 @@ const MMenu: React.FC<IProps> = ({ history }) => {
                     </div>
                     <div
                       className={
-                        (isMediaUp && i.key === mediaKey) || (isApplyUp && i.key === applyKey) || (isAdvancedUp && i.key === advancedKey)
-                          ? styles.close
-                          : styles.itemList
+                        (isMediaUp && i.key === mediaKey)
+                          || (isApplyUp && i.key === applyKey)
+                          || ((isServiceUp && i.key === serviceKey))
+                          || (isAdvancedUp && i.key === advancedKey) ? styles.close : styles.itemList
                       }
                     >
                       {i.children.map((item: any) => {

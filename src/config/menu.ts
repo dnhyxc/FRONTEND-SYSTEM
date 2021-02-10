@@ -65,6 +65,21 @@ const menuList = [
     ],
   },
   {
+    title: 'SERVICE',
+    key: 'service',
+    path: '',
+    type: 'menu',
+    children: [
+      {
+        key: 'node',
+        path: '/app/node',
+        power: true,
+        title: 'NODEJS',
+        type: 'function',
+      },
+    ],
+  },
+  {
     title: 'ADVANCED',
     key: 'advanced',
     path: '',

@@ -76,5 +76,4 @@ export function trackSpmEvent(params: TrackSpmEventParams | (() => TrackSpmEvent
       content = JSON.stringify(content);
     }
   }
-
 }

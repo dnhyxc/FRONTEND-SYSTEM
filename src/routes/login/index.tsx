@@ -4,6 +4,7 @@ import { GlobalState } from '@/models/types';
 import { connect, DispatchProp } from 'react-redux';
 import { withRouter } from 'dva/router';
 import { LoginActions, UserInfoTypes } from '@/models/login';
+import { getSStorage, setLStorage } from '@/utils/storageConfig';
 import icon from '@/assets/image/logo192.png';
 import styles from './index.less';
 
@@ -38,8 +39,9 @@ const Login: React.FC<IProps> = ({ dispatch, userInfo, history }) => {
           userName: uname,
           passWord: pwd,
         };
+        setLStorage('userInfo', info);
         dispatch(LoginActions.reducers.save({ userInfo: info }));
-        const selected = JSON.parse(sessionStorage.getItem('menuData') as any);
+        const selected = getSStorage('menuData');
         const child: any[] = [];
         selected.forEach((i: any) => {
           if (i.children) {

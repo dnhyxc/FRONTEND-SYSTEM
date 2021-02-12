@@ -3,6 +3,7 @@ import { connect, DispatchProp } from 'react-redux';
 import { Redirect, RouteComponentProps, withRouter } from 'dva/router';
 import { GlobalState } from '@/models/types';
 import { UserInfoTypes } from '@/models/login';
+import { getLStorage } from '@/utils/storageConfig';
 import MainLayout from './layout';
 import Login from './login';
 import styles from './app.less';
@@ -15,17 +16,12 @@ interface IAppProps extends RouteComponentProps, DispatchProp {
 }
 
 const App: React.FC<IAppProps> = ({ children, userInfo }) => {
-  // 临时用
-  if (userInfo.userName && userInfo.passWord) {
+  const { userName, passWord } = getLStorage('userInfo');
+  if (!userName && !passWord) {
     if (location.pathname !== '/app/login') {
       return <Redirect to="/app/login" />;
     }
   }
-  // if (!userInfo.userName && !userInfo.passWord) {
-  //   if (location.pathname !== '/app/login') {
-  //     return <Redirect to="/app/login" />;
-  //   }
-  // }
 
   if (location.pathname === '/app/login') {
     return <Login />;

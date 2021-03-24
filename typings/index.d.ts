@@ -1,4 +1,3 @@
-
 declare module '*.svg' {
   const url: string;
   export default url;
@@ -45,7 +44,6 @@ declare module 'dva-loading' {
 declare module '*.woff';
 declare module '*.woff2';
 declare module '*.otf';
-
 
 declare module 'echarts/map/json/*.json' {
   const json: any;
